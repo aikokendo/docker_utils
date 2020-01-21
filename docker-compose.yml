@@ -18,5 +18,14 @@ services:
                         POSTGRES_PASSWORD: somePass
                 networks:
                         - webnet
+        rabbitmq:
+                image: rabbitmq:3-management
+                ports:
+                        - 15672:15672
+                        - 5672:5672
+                hostname: my-rabbit
+                environment:
+                        - RABBITMQ_DEFAULT_USER=aleUser
+                        - RABBITMQ_DEFAULT_PASS=alePass
 networks:
         webnet:
