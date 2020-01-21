@@ -15,7 +15,7 @@ docker-compose up
 
 ## Debug steps
 
-## Redis
+### Redis
 access the Redis container and see the current keys in cache by running 
 ```
 docker exec -it <redis-container-name> bash
@@ -23,7 +23,7 @@ redis-cli
 keys *
 ```
 
-## Postgres
+### Postgres
 Run pgAdmin for management tools for postgresSQL.  Connection information:
 ```
 hostname: 192.168.99.100
