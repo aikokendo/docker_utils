@@ -7,10 +7,17 @@ docker pull postgres
 docker pull redis
 ```
 
-execute the docker file:
+create a clone of CsvToJSONorXML in the folder CsvToJSONorXML
 
 ```
-docker-compose up
+git clone git@github.com:aikokendo/CsvToJSONorXML.git CsvToJSONorXML
+```
+
+execute the rundocky, which gets the latest version of CsvToJSONorXML, creates a jar of it, creates an docker image using that jar file.
+and finally execute Docker-compose:
+
+```
+sh runDocky.sh
 ```
 
 ## Debug steps
@@ -40,6 +47,12 @@ http://192.168.99.100:15672/
 ```
 default rabbitmq definition in this docker file does not limit rabbitmq memory and is using default parameters. In case of a real-life case, they must be fine tuned for the environment.
 
+### JavaService
+JavaService is an image of CsvToJSONorXML, and it's endpoints will be exposed in the following address:
+
+```
+192.168.99.100:4001/
+```
 ## independent runs for testing
 ```
 docker run -d --hostname my-rabbit --name some-rabbit -p 15672:15672 -p 5672:5672 rabbitmq:3-management
