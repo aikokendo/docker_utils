@@ -27,5 +27,13 @@ services:
                 environment:
                         - RABBITMQ_DEFAULT_USER=aleUser
                         - RABBITMQ_DEFAULT_PASS=alePass
+                networks:
+                        - webnet
+        back:
+                image: javaservice
+                ports: 
+                        - "4001:8080"
+                networks:
+                        - webnet
 networks:
         webnet:
