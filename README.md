@@ -59,3 +59,24 @@ docker run -d --hostname my-rabbit --name some-rabbit -p 15672:15672 -p 5672:567
 docker run -d -p 6379:6379 --name some-redis -d redis
 docker run -d -p 5432:5432 --name some-postgres -e POSTGRES_PASSWORD=somePass -d postgres
 ```
+
+## How to get a Thread Dump
+
+``` docker exec -it CONTAINER_NAME bash```  // Access the docker bash 
+
+``` jsp``` // List processes
+
+``` jstack PID > threadDump.tdump ```  // copy thread dump into a file
+
+``` jmap -dump:live,format=b,file=heapDump.hprof PID ``` // copy heap dump into a file
+
+``` exit ```
+
+``` docker cp CONTAINER_NAME:threadDump.tdump . ``` // copy thread dump out of the container
+
+``` docker cp CONTAINER_NAME:heapDump.hprof . ``` // copy the heap dump out of the container
+  
+
+
+
+
