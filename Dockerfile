@@ -1,5 +1,5 @@
 #official java runtime
-FROM openjdk:8-jdk-alpine
+FROM openjdk:8
 
 # Set the working directory to /
 WORKDIR /
@@ -11,4 +11,4 @@ copy javaservice.jar app.jar
 EXPOSE 8080
 
 # Run .jar when the container launches
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+CMD ["java", "-jar", "app.jar"]
